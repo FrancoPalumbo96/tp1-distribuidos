@@ -1,60 +1,46 @@
 
 syntax = "proto3";
 
-option java_package = "productCatalog";
+option java_package = "com.productCatalog";
 option java_multiple_files = true;
-option java_package = "io.grpc.examples.routeguide";
 option java_outer_classname = "RouteGuideProto";
 option objc_class_prefix = "RTG";
 
-
 package productCatalog;
 
-service ProductCatalog{
+service ProductService {
 
-    rpc GetProductDetails(ProductID) returns (ProductDetails){}
+    rpc AddProduct(Product) returns (stream Product){}
 
-    //TODO tupla o stream id
-    rpc AddProduct(ProductID) returns (bool){}
-
-    rpc GetWishlist(UserID) returns (stream Product){}
+    rpc GetWishlist(User) returns (stream Product){}
 
     //TODO segunda parte
     //rpc GetDetailedWishlist(UserID) returns (DetailedWishlist){}
 
-    rpc DeleteProductFromWishlist(ProductID) returns (bool){}
+    rpc DeleteProductFromWishlist(Product) returns (stream Product){}
 
-
-}
-
-message ProductID {
-
-    string ID = 1;
-
-}
-
-message ProductDetails {
-
-    float price = 1;
-    string details = 2;
 
 }
 
 message Product {
 
-    ProductID id = 1;
+    int32 id = 1;
     string name = 2;
-    ProductDetails details = 3;
+    float price = 3;
+    string description = 4;
 
+}
+
+message User {
+    int32 id = 1;
 }
 
 message UserID {
 
-    string ID = 1;
+    int32 ID = 1;
 }
 
 message DetailedProduct {
-
 
 }
 
