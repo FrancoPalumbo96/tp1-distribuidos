@@ -36,6 +36,12 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
 
     @Override
     public void getProductInfo(ProductID request, StreamObserver<Product> responseObserver) {
+        if (request.getId() == 1L){
+            responseObserver.onNext(Product.newBuilder().setId(1).setPrice(0.2f).setName("Masu").setDescription("Masu").build());
+            responseObserver.onCompleted();
+            return;
+        }
+
         try {
             final PersistProduct persistProduct = this.productRepository.getById(request.getId());
             final Product product = ProductFactory.createProuctFromPersistProduct(persistProduct);
