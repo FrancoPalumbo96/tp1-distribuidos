@@ -16,7 +16,7 @@
 
         <!--<property name="hbm2ddl.auto">create-drop</property>-->
 
-        <mapping class="model.persist.PersistProduct"/>
+        <mapping class="model.persist.product.PersistProduct"/>
 
     </session-factory>
 </hibernate-configuration>

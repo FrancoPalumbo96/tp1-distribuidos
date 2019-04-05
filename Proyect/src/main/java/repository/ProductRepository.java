@@ -1,7 +1,7 @@
 package repository;
 
 import javassist.NotFoundException;
-import model.persist.PersistProduct;
+import model.persist.product.PersistProduct;
 
 public class ProductRepository extends BaseRepository<PersistProduct> {
 

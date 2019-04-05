@@ -5,11 +5,20 @@ import com.productCatalog.Product;
 import com.productCatalog.ProductServiceGrpc;
 import com.productCatalog.User;
 import io.grpc.stub.StreamObserver;
+import model.persist.product.PersistProduct;
+import model.persist.product.ProductFactory;
+import repository.ProductRepository;
 
 public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBase {
+
+    //Decide a good Injection Strategy (Maybe Singleton???)
+    final ProductRepository productRepository = new ProductRepository();
+
     @Override
     public void addProduct(Product request, StreamObserver<Product> responseObserver) {
-        super.addProduct(request, responseObserver);
+        final PersistProduct toPersist = ProductFactory.createPersistProductFromProduct(request);
+        this.productRepository.save(toPersist);
+        responseObserver.onNext(request);
     }
 
     @Override

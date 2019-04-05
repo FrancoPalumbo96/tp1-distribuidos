@@ -24,7 +24,7 @@ service ProductService {
 
 message Product {
 
-    int32 id = 1;
+    uint64 id = 1;
     string name = 2;
     float price = 3;
     string description = 4;
@@ -32,7 +32,7 @@ message Product {
 }
 
 message User {
-    int32 id = 1;
+    uint64 id = 1;
 }
 
 message UserID {

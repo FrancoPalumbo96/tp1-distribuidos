@@ -1,4 +1,4 @@
-package model.persist;
+package model.persist.product;
 
 import com.productCatalog.Product;
 
@@ -20,7 +20,7 @@ public class PersistProduct {
 
     private String description;
 
-    private PersistProduct(String name, float price, String description) {
+    public PersistProduct(String name, float price, String description) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -61,5 +61,4 @@ public class PersistProduct {
         this.description = description;
     }
 
-    public static PersistProduct createFromProduct(Product product){return new PersistProduct(product.getName(), product.getPrice(), product.getDescription());}
 }

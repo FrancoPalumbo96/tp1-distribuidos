@@ -10,7 +10,7 @@ public abstract class BaseRepository <T> {
         if (session == null || !session.isOpen()) session = HibernateConfig.getSession();
     }
 
-    public void add (T toAdd){
+    public void save (T toAdd){
         this.refreshSession();
         session.save(toAdd);
         session.close();
