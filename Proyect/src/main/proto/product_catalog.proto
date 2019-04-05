@@ -14,12 +14,9 @@ service ProductService {
 
     rpc GetWishlist(User) returns (stream Product){}
 
-    //TODO segunda parte
-    //rpc GetDetailedWishlist(UserID) returns (DetailedWishlist){}
+    rpc GetProductInfo (ProductID) returns (stream Product){}
 
     rpc DeleteProductFromWishlist(Product) returns (stream Product){}
-
-
 }
 
 message Product {
@@ -35,6 +32,12 @@ message User {
     uint64 id = 1;
 }
 
+message WishList {
+    uint64 id = 1;
+    User user = 2;
+    repeated Product products = 3;
+}
+
 message UserID {
 
     int32 ID = 1;
@@ -42,6 +45,10 @@ message UserID {
 
 message DetailedProduct {
 
+}
+
+message ProductID {
+    uint64 id = 1;
 }
 
 
