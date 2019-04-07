@@ -2,6 +2,7 @@ package repository;
 
 import javassist.NotFoundException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public abstract class BaseRepository <T> {
     protected Session session;
@@ -12,8 +13,20 @@ public abstract class BaseRepository <T> {
 
     public void save (T toAdd){
         this.refreshSession();
-        session.save(toAdd);
-        session.close();
+        System.out.println("SAVING");
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.save(toAdd);
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw e;
+        }
+        finally {
+            session.close();
+        }
     }
 
     public abstract T getById (Long id) throws NotFoundException;
