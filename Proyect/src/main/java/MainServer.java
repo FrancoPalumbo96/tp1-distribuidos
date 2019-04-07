@@ -6,8 +6,20 @@ import model.persist.product.ProductFactory;
 import repository.ProductRepository;
 import services.ProductServiceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainServer {
 
+    private static void dbStartUp(){
+        List<PersistProduct> defaultProducts = new ArrayList<>();
+        defaultProducts.add(new PersistProduct("ApplePen", 54, "ApplePen - PineApplePen"));
+        defaultProducts.add(new PersistProduct("Messi Shirt", 100, "awesome as Messi!"));
+        defaultProducts.add(new PersistProduct("Sergio Ramos Shirt", 3, "Not So Awesome"));
+
+        ProductRepository repo = ProductRepository.getInstance();
+        defaultProducts.stream().forEach(prod -> repo.save(prod));
+    }
 
     public static void main(String[] arg) {
         try {
@@ -17,13 +29,8 @@ public class MainServer {
             server.start();
             System.out.println("Server has started ========");
             System.out.println("STARTTING HIBERNATE");
-            Product product = Product.newBuilder().setName("ApplePen")
-                    .setPrice(0.5f)
-                    .setDescription("ApplePen - PineApple Pen")
-                    .setId(2)
-                    .build();
-            ProductRepository.getInstance().save(ProductFactory.createPersistProductFromProduct(product));
-            System.out.println("FINISHED");
+            dbStartUp();
+            System.out.println("STARTUP FINISHED, WAITING FOR REQUESTS");
             server.awaitTermination();
         } catch (Exception e) {
             e.printStackTrace();
