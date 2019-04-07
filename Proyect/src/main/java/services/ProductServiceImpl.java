@@ -14,7 +14,7 @@ import repository.ProductRepository;
 public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBase {
 
     //Decide a good Injection Strategy (Maybe Singleton???)
-    final ProductRepository productRepository = new ProductRepository();
+    final ProductRepository productRepository = ProductRepository.getInstance();
 
     @Override
     public void addProduct(Product request, StreamObserver<Product> responseObserver) {

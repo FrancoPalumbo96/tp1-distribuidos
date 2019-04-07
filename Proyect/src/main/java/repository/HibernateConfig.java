@@ -1,5 +1,6 @@
 package repository;
 
+import model.persist.product.PersistProduct;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,6 +15,7 @@ public class HibernateConfig {
     static {
         try {
             Configuration configuration = new Configuration();
+            configuration.addAnnotatedClass(PersistProduct.class);
             configuration.configure();
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
                     configuration.getProperties()).build();
