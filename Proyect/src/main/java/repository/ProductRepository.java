@@ -19,11 +19,15 @@ public class ProductRepository extends BaseRepository<PersistProduct> {
 
     @Override
     public List<PersistProduct> getAll() {
+        super.refreshSession();
+        List<PersistProduct> list = new ArrayList<>();
         try {
-            return session.createQuery("SELECT p FROM PersistProduct w", PersistProduct.class).getResultList();
+            list = session.createQuery("SELECT p FROM PersistProduct p", PersistProduct.class).getResultList();
         } catch (Exception e) {
-            return new ArrayList<>();
+            e.printStackTrace();
         }
+        System.out.printf("List Size Is " + list.size());
+        return list;
     }
 
     @Override
