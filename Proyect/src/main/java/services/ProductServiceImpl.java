@@ -8,6 +8,9 @@ import model.persist.product.PersistProduct;
 import model.persist.product.ProductFactory;
 import repository.ProductRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBase {
 
     //Decide a good Injection Strategy (Maybe Singleton???)
@@ -33,7 +36,16 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
             e.printStackTrace();
             responseObserver.onError(e);
         }
+    }
 
+    @Override
+    public void getAllProducts(GetAllProductsRequest request, StreamObserver<ProductList> responseObserver) {
+        List<PersistProduct> result = productRepository.getAll();
+        List<Product> parsed = new ArrayList<>();
+        result.stream().forEach(p -> parsed.add(ProductFactory.createProuctFromPersistProduct(p)));
+        ProductList list = ProductList.newBuilder().addAllProducts(parsed).build();
+        responseObserver.onNext(list);
+        responseObserver.onCompleted();
     }
 }
 

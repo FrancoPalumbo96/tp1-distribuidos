@@ -4,6 +4,8 @@ import javassist.NotFoundException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public abstract class BaseRepository <T> {
     protected Session session;
 
@@ -29,7 +31,12 @@ public abstract class BaseRepository <T> {
         }
     }
 
+    public abstract List<T> getAll();
+
+
     public abstract T getById (Long id) throws NotFoundException;
+
+
 
     public void delete (T toDelete){
         this.refreshSession();
