@@ -17,7 +17,7 @@ public class ProductServiceImpl extends ProductServiceGrpc.ProductServiceImplBas
     public void addProduct(CreateProductRequest request, StreamObserver<Product> responseObserver) {
         final PersistProduct toSave = new PersistProduct(request.getName(), request.getPrice(), request.getDescription());
         this.productRepository.save(toSave);
-        Product product = ProductFactory.createProuctFromPersistProduct(toSave);
+        final Product product = ProductFactory.createProuctFromPersistProduct(toSave);
         responseObserver.onNext(product);
         responseObserver.onCompleted();
     }
