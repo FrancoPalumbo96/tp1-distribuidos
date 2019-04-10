@@ -4,6 +4,7 @@ import io.grpc.ServerBuilder;
 import model.persist.product.PersistProduct;
 import model.persist.product.ProductFactory;
 import repository.ProductRepository;
+import services.HealthServiceImpl;
 import services.ProductServiceImpl;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class MainServer {
         try {
             Server server = ServerBuilder.forPort(50051)
                     .addService(new ProductServiceImpl())
+                    .addService(new HealthServiceImpl())
                     .build();
             server.start();
             System.out.println("Server has started ========");
