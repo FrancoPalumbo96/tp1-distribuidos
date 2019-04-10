@@ -19,7 +19,7 @@ public abstract class BaseRepository <T> {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(toAdd);
+            session.saveOrUpdate(toAdd);
             tx.commit();
         }
         catch (Exception e) {
