@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b72027ff-a205-4a3f-bdcc-da8c1de991ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/distributed-system-proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/distributed-system-proto" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -109,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="31" column="62" lean-forward="true" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
+              <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -254,7 +254,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554935770559" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554953888717" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -354,7 +354,7 @@
       <workItem from="1554745209965" duration="9136000" />
       <workItem from="1554826518727" duration="35000" />
       <workItem from="1554932701571" duration="444000" />
-      <workItem from="1554935486272" duration="724000" />
+      <workItem from="1554935486272" duration="3566000" />
     </task>
     <task id="LOCAL-00001" summary="System now starts">
       <created>1554422357218</created>
@@ -461,11 +461,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554935767035</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added SaveOrUpdate in Base Repository">
+      <created>1554936226775</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1554936226775</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35230000" />
+    <option name="totallyTimeSpent" value="38072000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -482,7 +489,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -526,7 +533,8 @@
     <MESSAGE value="GetAll Implemented" />
     <MESSAGE value="AWS DB Integration" />
     <MESSAGE value="HealthServiceImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="HealthServiceImpl" />
+    <MESSAGE value="Added SaveOrUpdate in Base Repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added SaveOrUpdate in Base Repository" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/Hola.java" />
@@ -670,7 +678,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/MainServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="31" column="62" lean-forward="true" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
+          <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
